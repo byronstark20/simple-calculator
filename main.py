@@ -3,9 +3,14 @@
 # calculate
 # output values
 
-
 values = input("Please enter two numbers : ")
-values = [int(i) for i in values.split()]
+
+while isinstance(values, str):
+    try:
+        values = [int(i) for i in values.split()]
+    except ValueError:
+        values = input("Input should contain numbers only, please try again : ")
+
 print(values)
 print("""
 1. Add
@@ -15,9 +20,11 @@ print("""
 """)
 operation = input("Please choose an operation : ")
 
-while operation.isalpha() :
-    operation = input("Invalid input, please try again : ")
-operation = int(operation)
+while isinstance(operation, str):
+    try:
+        operation = int(operation)
+    except ValueError:
+        operation = input("Input should contain numbers only, please try again : ")
 
 # can be simplified with dictionary
 if operation == 1:
