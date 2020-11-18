@@ -1,7 +1,8 @@
-import lwdcalculator
+from lwdcalculator import Calculator
 
 if __name__ == "__main__":
-    main = lwdcalculator.Calculator()
-    main.get_input()
+    calc = Calculator()
+    calc.get_input()    
     # choose a calculation method
-    main.get_result()
+    calc.calculate_default()
+    calc.get_result()
