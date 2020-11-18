@@ -3,8 +3,16 @@ class Calculator:
     result : str
 
     def get_input(self):
-        ''' get input '''
-        self.user_response = input("Please enter your calculation : ")
+      ''' get input '''
+      values = input("Please enter two numbers : ")
+
+      while isinstance(values, str):
+          try:
+            values = [int(i) for i in values.split()]
+          except ValueError:
+            values = input("Input should contain numbers only, please try again : ")                    
+      self.user_response = values
+      return values
 
     def calculate_guy(self) -> float:
         '''process user_response string and returns calculated result'''
