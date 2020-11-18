@@ -4,14 +4,14 @@ class Calculator:
 
     def get_input(self):
       ''' get input '''
-      values = input("Please enter two numbers : ")
-
+      self.user_response = input("Please enter two numbers : ")
+    
+      values = self.user_response
       while isinstance(values, str):
           try:
-            values = [int(i) for i in values.split()]
+            values = [int(i) for i in self.user_response.split()]
           except ValueError:
-            values = input("Input should contain numbers only, please try again : ")                    
-      self.user_response = values
+            self.user_response = input("Input should contain numbers only, please try again : ")                   
       return values
 
     def calculate_guy(self) -> float:
