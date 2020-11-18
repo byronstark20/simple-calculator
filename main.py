@@ -2,15 +2,11 @@
 # get user input
 # calculate
 # output values
+from lwdcalculator import Calculator
 
+calculate = Calculator()
+user_input = calculate.get_input()
 
-values = input("Please enter two numbers : ")
-
-while isinstance(values, str):
-    try:
-        values = [int(i) for i in values.split()]
-    except ValueError:
-        values = input("Input should contain numbers only, please try again : ")
 
 print("""
 1. Add
@@ -18,6 +14,7 @@ print("""
 3. Multiply
 4. Divide
 """)
+
 operation = input("Please choose an operation : ")
 
 while isinstance(operation, str):
@@ -28,7 +25,7 @@ while isinstance(operation, str):
 
 # can be simplified with dictionary
 if operation == 1:
-    result = values[0] + values[1]
+    result = user_input[0] + user_input[1]
     print(result)
 else:
     print("No valid operation chosen.")
